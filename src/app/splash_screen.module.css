@@ -3,7 +3,7 @@
 .splashContainer {
     display: flex;
     justify-content: center;
-    column-gap: 5em;
+    column-gap: 4em;
     align-items: center;
     height: 100vh;
     background: black;
