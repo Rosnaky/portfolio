@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
+
+.splashContainer {
+    display: flex;
+    justify-content: center;
+    column-gap: 5em;
+    align-items: center;
+    height: 100vh;
+    background: black;
+    color: white;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 2rem;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .cover {
+    display: flex;
+    height: 50px;
+    width: 20vw;
+    color: black;
+    background-color: black;
+    position: fixed;
+    top: 52%;
+    z-index: 99;
+  }
+  
+  .initials {
+    position: relative;
+    opacity: 1;
+    transition: opacity 2s ease-in-out;
+  }
+  
+  .initials.show {
+    animation: moveUp 4s ease-in-out;
+  }
+
+  .initials.place {
+    transform: translateY(1em);
+  }
+
+  .initials.hide {
+    transform: moveDown 1s ease-in-out;
+  }
+  
+  .splashContainer.moveUp {
+    animation: moveUp 0.75s ease-in-out;
+  }
+  .splashContainer.moveDown {
+    animation: moveDown 0.75s ease-in-out;
+  }
+  
+  @keyframes moveUp {
+    0% {
+      transform: translateY(1em);
+    }
+    20% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    60% {
+      transform: translateY(1em);
+    }
+    100% {
+      transform: translateY(1em);
+    }
+  }
+
+  @keyframes moveDown {
+    0% {
+      transform: translateY(2em);
+    }
+    100% {
+      transform: translateY(-1em);
+    }
+  }
+  
