@@ -15,4 +15,20 @@
   z-index: 10;
 }
 
+.windowDrop {
+  background-color: black;
+  animation: moveDown 1s ease-in-out;
+}
+
+
+@keyframes moveDown {
+  from {
+    height: 100vh;
+  }
+  to {
+    height: 0;
+  }
+}
+
+
 
