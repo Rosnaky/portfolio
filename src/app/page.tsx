@@ -4,6 +4,7 @@ import { useState } from "react";
 import SplashScreen from "./splash_screen";
 import TitleScreen from "./title_screen";
 import Head from "next/head";
+import ThreeBackground from "./three_screen";
 
 const Home: React.FC = () => {
   const [isSplashVisible, setIsSplashVisible] = useState<boolean>(true);
@@ -19,7 +20,10 @@ const Home: React.FC = () => {
       {isSplashVisible ? (
         <SplashScreen onFinish={handleSplashFinish} />
       ) : (
-        <TitleScreen />
+        <div>
+          {/* <ThreeBackground/> */}
+          <TitleScreen />
+        </div>
       )}
     </>
   )

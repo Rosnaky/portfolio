@@ -6,7 +6,8 @@
   /* column-gap: 5em; */
   /* align-items: center; */
   height: 100vh;
-  background: black;
+  /* background: black; */
+  background-color: rgba(0, 0, 0, 0);
   color: white;
   font-family: 'Afacad Flux', sans-serif;
   /* font-size: 2rem; */
