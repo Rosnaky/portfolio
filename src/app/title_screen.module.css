@@ -17,16 +17,23 @@
 }
 
 .windowDrop {
+  position: fixed;
   background-color: black;
-  animation: moveDown 1s ease-in-out;
+  animation: moveDown 1.5s ease-in-out forwards;
+  bottom: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
 }
 
 
 @keyframes moveDown {
-  from {
+  0% {
+    /* top: 0; */
     height: 100vh;
   }
-  to {
+  100% {
+    /* transform: translateY(100vh); */
     height: 0;
   }
 }

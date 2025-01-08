@@ -5,9 +5,9 @@ const TitleScreen: React.FC = () => {
 
     return (
         <div>
-            <div className={`"flex h-0 z-10" ${styles.windowDrop}`}></div>
+            <div className={`${styles.windowDrop}`}></div>
             <ThreeBackground/>
-            <div className={`${styles.titleContainer} " grid grid-rows-4 grid-cols-6 gap-4"`}>
+            <div className={`${styles.titleContainer} "absolute grid grid-rows-4 grid-cols-6 gap-4"`}>
                 <div className="row-start-2 row-end-4 col-start-2 col-end-4 ">
                     <div className="flex gap-8 items-center font-semibold py-2 text-8xl">
                         <div className="text-teal-200">
