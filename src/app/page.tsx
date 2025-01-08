@@ -17,7 +17,8 @@ const Home: React.FC = () => {
         <meta name="description" content="Ronak Patel's Portfolio" />
       </Head>
       {isSplashVisible ? (
-        <SplashScreen onFinish={handleSplashFinish} />
+        <TitleScreen/>
+        // <SplashScreen onFinish={handleSplashFinish} />
       ) : (
         <div>
           {/* <ThreeBackground/> */}
