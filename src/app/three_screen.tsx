@@ -21,13 +21,47 @@ const ThreeBackground = () => {
             height: window.innerHeight
         };
 
+        const orbitModels: ModelEntry[] = [];
+
+        interface ModelEntry {
+            model: THREE.Object3D;  
+            xRadius: number;         
+            yRadius: number;
+            zRadius: number;
+            speed: number;          
+            angle: number;
+            rotation: THREE.Vector3; 
+            pos_offset: THREE.Vector3;   
+        }
+
+        function addModelToOrbit(model: THREE.Object3D, radius: THREE.Vector3, speed: number, rotation: THREE.Vector3, pos_offset? : THREE.Vector3) {
+            orbitModels.push({
+                model: model, 
+                xRadius: radius.x,
+                yRadius: radius.y,
+                zRadius: radius.z,
+                speed: speed, 
+                angle: 0 ,
+                rotation: rotation,
+                pos_offset: pos_offset ?? new THREE.Vector3(0, 0, 0),
+            });
+        
+            scene.add(model); // Add the model to the scene
+        }
+
+        const origin = new THREE.Vector3(0, -4, -0.5);
+
+        // Black hole
         loader.load('/utils/black-hole.glb', function(gltf) {
+            // eslint-disable-next-line prefer-const
             let model = gltf.scene;
 
-            model.position.set(0, -4, -0.5);
+            model.position.set(origin.x, origin.y, origin.z);
             model.scale.set(0.2, 0.2, 0.2);
             model.rotation.x = Math.PI * (10/180);
             // model.rotation.z = Math.PI * (-15/180);
+
+            addModelToOrbit(model, new THREE.Vector3(0, 0, 0), 0, new THREE.Vector3(0, 0.001, 0), origin);
 
             scene.add(model);
 
@@ -35,9 +69,55 @@ const ThreeBackground = () => {
             console.error(error);
         }) 
 
-        const geometry = new THREE.BoxGeometry(1, 1, 1);
-        const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-        const mesh = new THREE.Mesh(geometry, material);
+        // Saturn planet
+        loader.load('/utils/saturn-planet.glb', function(gltf) {
+            // eslint-disable-next-line prefer-const
+            let model = gltf.scene;
+
+            model.position.set(4, 1.25, -0.5);
+            model.scale.set(0.2, 0.2, 0.2);
+            // model.rotation.x = Math.PI * (10/180);
+            // model.rotation.z = Math.PI * (-15/180);
+
+            addModelToOrbit(model, model.position, 0.002, new THREE.Vector3(0.003, 0.001, 0.0005));
+
+            scene.add(model);
+
+        }, undefined, function (error) {
+            console.error(error);
+        }) 
+
+        // Stars
+        function createStar(x: number, y: number, z: number): THREE.Mesh {
+            const geometry = new THREE.SphereGeometry(0.005, 32); // Circle with radius 0.1
+            const material = new THREE.MeshBasicMaterial({ color: 0xffffff }); // White color
+            const circle = new THREE.Mesh(geometry, material);
+        
+            circle.position.set(x, y, z);
+            return circle;
+        }
+        
+        const starCount = 400;
+        const maxX = 6;
+        const maxY = 3;
+        const maxZ = 6;
+
+
+        for (let i = 0; i < starCount; i++) {
+            const x = THREE.MathUtils.randFloat(-maxX, maxX);
+            const y = THREE.MathUtils.randFloat(-maxY, maxY);
+            const z = THREE.MathUtils.randFloat(-maxZ, maxZ);
+            
+            const star = createStar(x, y, z);
+
+            scene.add(star);
+        }
+
+
+
+        // const geometry = new THREE.BoxGeometry(1, 1, 1);
+        // const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+        // const mesh = new THREE.Mesh(geometry, material);
         // scene.add(mesh);
         // TODO: Resize when window changes size
         const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 2000);
@@ -75,8 +155,8 @@ const ThreeBackground = () => {
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         renderer.setClearColor(0x000000, 1);
         
-        const radius = 7;
-        const maxSpeed = 0.005;
+        const radius = 8.5;
+        const maxSpeed = 0.003;
         let speed = 0;
         const acceleration = maxSpeed/50;
         let angle = 0;
@@ -99,6 +179,21 @@ const ThreeBackground = () => {
 
         const animate = () => {            
             requestAnimationFrame(animate);
+
+            orbitModels.forEach((entry) => {
+                const { model, xRadius, yRadius, zRadius, speed, rotation, pos_offset } = entry;
+                
+                entry.angle += speed;
+
+                model.position.x = xRadius * Math.cos(entry.angle) + pos_offset.x;
+                model.position.y = yRadius * Math.sin(entry.angle) + pos_offset.y;
+                model.position.z = zRadius * Math.cos(entry.angle) + pos_offset.z;
+
+                model.rotation.x += rotation.x;
+                model.rotation.y += rotation.y;
+                model.rotation.z += rotation.z;
+
+            });
             
             if (!isUserInteracting) {
 

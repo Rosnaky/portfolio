@@ -11,6 +11,7 @@ furnished to do so, subject to the following conditions:
 
 You must give any other recipients of the Work or Derivative Works a copy of the following Licenses  
 1) Black hole by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/bUEMVxbw9Zr)  
+2) Planet by Quaternius (https://poly.pizza/m/9g1aIbfR9Y)  
 
 
 The above copyright notice and this permission notice shall be included in all
