@@ -75,11 +75,47 @@ const ThreeBackground = () => {
             let model = gltf.scene;
 
             model.position.set(4, 1.25, -0.5);
-            model.scale.set(0.2, 0.2, 0.2);
+            model.scale.set(0.15, 0.15, 0.15);
             // model.rotation.x = Math.PI * (10/180);
             // model.rotation.z = Math.PI * (-15/180);
 
             addModelToOrbit(model, model.position, 0.002, new THREE.Vector3(0.003, 0.001, 0.0005));
+
+            scene.add(model);
+
+        }, undefined, function (error) {
+            console.error(error);
+        }) 
+
+        // Colourful saturn planet
+        loader.load('/utils/colourful-saturn-planet.glb', function(gltf) {
+            // eslint-disable-next-line prefer-const
+            let model = gltf.scene;
+
+            model.position.set(-4, 3, -3);
+            model.scale.set(0.0002, 0.0002, 0.0002);
+            // model.rotation.x = Math.PI * (10/180);
+            // model.rotation.z = Math.PI * (-15/180);
+
+            addModelToOrbit(model, model.position, 0.0008, new THREE.Vector3(0.007, 0.001, 0.0005));
+
+            scene.add(model);
+
+        }, undefined, function (error) {
+            console.error(error);
+        }) 
+
+        // Earth planet
+        loader.load('/utils/earth.glb', function(gltf) {
+            // eslint-disable-next-line prefer-const
+            let model = gltf.scene;
+
+            model.position.set(-1, 2.5, -3);
+            model.scale.set(0.15, 0.15, 0.15);
+            // model.rotation.x = Math.PI * (10/180);
+            // model.rotation.z = Math.PI * (-15/180);
+
+            addModelToOrbit(model, model.position, 0.0012, new THREE.Vector3(0.001, 0.005, 0.0005));
 
             scene.add(model);
 
