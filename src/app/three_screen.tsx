@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
@@ -21,7 +22,8 @@ const ThreeBackground = () => {
             height: window.innerHeight
         };
 
-        const orbitModels: ModelEntry[] = [];
+        const planetOrbitModels: ModelEntry[] = [];
+        const lunarOrbitModels: MoonModelEntry[] = [];
 
         interface ModelEntry {
             model: THREE.Object3D;  
@@ -34,8 +36,12 @@ const ThreeBackground = () => {
             pos_offset: THREE.Vector3;   
         }
 
+        interface MoonModelEntry extends ModelEntry {
+            parentModelIndex: number;
+        }
+
         function addModelToOrbit(model: THREE.Object3D, radius: THREE.Vector3, speed: number, rotation: THREE.Vector3, pos_offset? : THREE.Vector3) {
-            orbitModels.push({
+            planetOrbitModels.push({
                 model: model, 
                 xRadius: radius.x,
                 yRadius: radius.y,
@@ -47,6 +53,26 @@ const ThreeBackground = () => {
             });
         
             scene.add(model); // Add the model to the scene
+        }
+
+        function AddMoonToOrbit(
+            model: THREE.Object3D,
+            radius: THREE.Vector3,
+            speed: number,
+            rotation: THREE.Vector3,
+            parentModelIndex: number,
+        ) {
+            lunarOrbitModels.push({
+                model: model,
+                xRadius: radius.x,
+                yRadius: radius.y,
+                zRadius: radius.z,
+                speed: speed,
+                angle: 0,
+                rotation: rotation,
+                pos_offset: new THREE.Vector3(0, 0, 0),
+                parentModelIndex: parentModelIndex
+            });
         }
 
         const origin = new THREE.Vector3(0, -4, -0.5);
@@ -110,12 +136,50 @@ const ThreeBackground = () => {
             // eslint-disable-next-line prefer-const
             let model = gltf.scene;
 
-            model.position.set(-1, 2.5, -3);
+            model.position.set(-1, 2.5, 3);
             model.scale.set(0.15, 0.15, 0.15);
             // model.rotation.x = Math.PI * (10/180);
             // model.rotation.z = Math.PI * (-15/180);
 
             addModelToOrbit(model, model.position, 0.0012, new THREE.Vector3(0.001, 0.005, 0.0005));
+
+            scene.add(model);
+
+        }, undefined, function (error) {
+            console.error(error);
+        }) 
+
+        // Neptune planet
+        loader.load('/utils/neptune-planet.glb', function(gltf) {
+            // eslint-disable-next-line prefer-const
+            let model = gltf.scene;
+
+            model.position.set(6, 4, 9);
+            model.scale.set(0.0002, 0.0002, 0.0002);
+            // model.rotation.x = Math.PI * (10/180);
+            // model.rotation.z = Math.PI * (-15/180);
+
+            addModelToOrbit(model, model.position, 0.0012, new THREE.Vector3(0.001, 0.005, 0.0005));
+
+            scene.add(model);
+
+        }, undefined, function (error) {
+            console.error(error);
+        }) 
+
+        // Moon planet
+        loader.load('/utils/moon.glb', function(gltf) {
+            // eslint-disable-next-line prefer-const
+            let model = gltf.scene;
+
+            model.position.set(0.9, 0.5, 0.5);
+            model.scale.set(0.002, 0.002, 0.002);
+            // model.rotation.x = Math.PI * (10/180);
+            // model.rotation.z = Math.PI * (-15/180);
+
+            const parentIndex = 2;
+
+            AddMoonToOrbit(model, model.position, 0.01, new THREE.Vector3(0.001, 0.005, 0.0005), parentIndex);
 
             scene.add(model);
 
@@ -216,7 +280,7 @@ const ThreeBackground = () => {
         const animate = () => {            
             requestAnimationFrame(animate);
 
-            orbitModels.forEach((entry) => {
+            planetOrbitModels.forEach((entry) => {
                 const { model, xRadius, yRadius, zRadius, speed, rotation, pos_offset } = entry;
                 
                 entry.angle += speed;
@@ -229,6 +293,21 @@ const ThreeBackground = () => {
                 model.rotation.y += rotation.y;
                 model.rotation.z += rotation.z;
 
+            });
+
+            lunarOrbitModels.forEach((entry) => {
+                const { model, xRadius, yRadius, zRadius, speed, rotation, parentModelIndex } = entry;
+
+                entry.angle += speed;
+                const pos_offset = planetOrbitModels[parentModelIndex].model.position;
+
+                model.position.x = xRadius * Math.cos(entry.angle) + pos_offset.x;
+                model.position.y = yRadius * Math.sin(entry.angle) + pos_offset.y;
+                model.position.z = zRadius * Math.cos(entry.angle) + pos_offset.z;
+
+                model.rotation.x += rotation.x;
+                model.rotation.y += rotation.y;
+                model.rotation.z += rotation.z;
             });
             
             if (!isUserInteracting) {
