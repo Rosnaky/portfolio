@@ -215,7 +215,7 @@ const ThreeBackground = () => {
         
         const starCount = 400;
         const maxX = 6;
-        const maxY = 3;
+        const maxY = 4;
         const maxZ = 6;
 
 

@@ -11,6 +11,7 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        phthaloGreen: '#1C6B3C',
       },
     },
   },
