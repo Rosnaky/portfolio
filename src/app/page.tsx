@@ -4,9 +4,11 @@ import { useState } from "react";
 import SplashScreen from "./splash_screen";
 import TitleScreen from "./title_screen";
 import Head from "next/head";
+import AboutMe from "./aboutme";
 
 const Home: React.FC = () => {
-  const [isSplashVisible, setIsSplashVisible] = useState<boolean>(true);
+  
+  const [isSplashVisible, setIsSplashVisible] = useState<boolean>(false); // ifdebug
 
   const handleSplashFinish = () => setIsSplashVisible(false);
 
@@ -17,12 +19,13 @@ const Home: React.FC = () => {
         <meta name="description" content="Ronak Patel's Portfolio" />
       </Head>
       {isSplashVisible ? (
-        <TitleScreen/>
-        // <SplashScreen onFinish={handleSplashFinish} />
+        <SplashScreen onFinish={handleSplashFinish} />
       ) : (
-        <div>
+        <div className="">
           {/* <ThreeBackground/> */}
           <TitleScreen />
+          <AboutMe/>
+          
         </div>
       )}
     </>

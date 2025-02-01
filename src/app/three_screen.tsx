@@ -154,38 +154,54 @@ const ThreeBackground = () => {
             // eslint-disable-next-line prefer-const
             let model = gltf.scene;
 
-            model.position.set(6, 4, 9);
-            model.scale.set(0.0002, 0.0002, 0.0002);
+            model.position.set(6, 4, 5);
+            model.scale.set(0.02, 0.02, 0.02);
             // model.rotation.x = Math.PI * (10/180);
             // model.rotation.z = Math.PI * (-15/180);
 
-            addModelToOrbit(model, model.position, 0.0012, new THREE.Vector3(0.001, 0.005, 0.0005));
+            addModelToOrbit(model, model.position, 0.0012, new THREE.Vector3(-0.001, 0.005, -0.0005));
 
             scene.add(model);
 
         }, undefined, function (error) {
             console.error(error);
         }) 
+        
+        const numPlanets = 4;
+        const numMoons = 4;
+        const minPosThreshold = 0.5;
+        const maxPosThreshold = 1.5;
+        const minPlanetSpeed = 0.0005;
+        const maxPlanetSpeed = 0.01;
 
-        // Moon planet
-        loader.load('/utils/moon.glb', function(gltf) {
-            // eslint-disable-next-line prefer-const
-            let model = gltf.scene;
+        for (let i = 0; i < numMoons; i++) {
+            // Moon planet
+            loader.load('/utils/moon.glb', function(gltf) {
+                // eslint-disable-next-line prefer-const
+                let model = gltf.scene;
 
-            model.position.set(0.9, 0.5, 0.5);
-            model.scale.set(0.002, 0.002, 0.002);
-            // model.rotation.x = Math.PI * (10/180);
-            // model.rotation.z = Math.PI * (-15/180);
 
-            const parentIndex = 2;
+                model.position.set(
+                    Math.random()*(maxPosThreshold-minPosThreshold) + minPosThreshold, 
+                    Math.random()*(maxPosThreshold-minPosThreshold) + minPosThreshold, 
+                    Math.random()*(maxPosThreshold-minPosThreshold) + minPosThreshold
+                );
+                
+                const size = (0.002-0.0005)*Math.random() + 0.0005;
+                model.scale.set(size, size, size);
+                // model.rotation.x = Math.PI * (10/180);
+                // model.rotation.z = Math.PI * (-15/180);
 
-            AddMoonToOrbit(model, model.position, 0.01, new THREE.Vector3(0.001, 0.005, 0.0005), parentIndex);
+                const parentIndex = Math.floor(Math.random()*numPlanets);
 
-            scene.add(model);
+                AddMoonToOrbit(model, model.position, Math.random()*(maxPlanetSpeed-minPlanetSpeed) + minPlanetSpeed, new THREE.Vector3(0.001, 0.005, 0.0005), parentIndex);
 
-        }, undefined, function (error) {
-            console.error(error);
-        }) 
+                scene.add(model);
+
+            }, undefined, function (error) {
+                console.error(error);
+            }) 
+        }
 
         // Stars
         function createStar(x: number, y: number, z: number): THREE.Mesh {
@@ -242,10 +258,10 @@ const ThreeBackground = () => {
         // controls.maxPolarAngle = Math.PI / 2;
         // controls.minPolarAngle = Math.PI / 2;
 
-        const axesHelper = new THREE.AxesHelper(5); // Size of the axes
-        scene.add(axesHelper);
-        const gridHelper = new THREE.GridHelper(10, 10); // Size of the grid and number of divisions
-        scene.add(gridHelper);
+        // const axesHelper = new THREE.AxesHelper(5); // Size of the axes
+        // scene.add(axesHelper);
+        // const gridHelper = new THREE.GridHelper(10, 10); // Size of the grid and number of divisions
+        // scene.add(gridHelper);
 
         const renderer = new THREE.WebGLRenderer({
             canvas: canvas,
@@ -297,8 +313,13 @@ const ThreeBackground = () => {
 
             lunarOrbitModels.forEach((entry) => {
                 const { model, xRadius, yRadius, zRadius, speed, rotation, parentModelIndex } = entry;
-
                 entry.angle += speed;
+                console.log(parentModelIndex);
+                if (planetOrbitModels[parentModelIndex].pos_offset.x == 0 &&
+                    planetOrbitModels[parentModelIndex].pos_offset.y == -4 &&
+                    planetOrbitModels[parentModelIndex].pos_offset.z == -0.5) {
+                    return;
+                }
                 const pos_offset = planetOrbitModels[parentModelIndex].model.position;
 
                 model.position.x = xRadius * Math.cos(entry.angle) + pos_offset.x;
@@ -337,11 +358,13 @@ const ThreeBackground = () => {
     }, []);
 
     return (
-        <div>
-            <div ref={mountRef} className="absolute w-full h-full overflow-hidden">
-                <canvas ref={canvasRef}/>
-            </div>
-        </div>
+        <>
+            <div className="-z-10">
+                <div ref={mountRef} className="">
+                    <canvas ref={canvasRef}/>
+                </div>
+            </div>    
+        </>
     );
 };
 

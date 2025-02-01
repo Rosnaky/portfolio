@@ -11,9 +11,9 @@
   color: white;
   font-family: 'Afacad Flux', sans-serif;
   /* font-size: 2rem; */
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
-  z-index: 20;
+  /* z-index: 20; */
   pointer-events: none;
 }
 
@@ -27,14 +27,30 @@
   height: 100vh;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+  border: 2px solid #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
 
 @keyframes moveDown {
   0% {
-    /* top: 0; */
     height: 100vh;
   }
   100% {
-    /* transform: translateY(100vh); */
     height: 0;
   }
 }
