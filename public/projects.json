@@ -1,0 +1,22 @@
+[
+    {
+      "title": "Secret Agent",
+      "description": "A cybersecurity testing tool for identifying site vulnerabilities using Vertex AI, GCP, Cohere, and LangChain.",
+      "link": "https://example.com/secret-agent"
+    },
+    {
+      "title": "CPP Tracker",
+      "description": "A competitive programming tracker to help users track their progress and stats across multiple platforms.",
+      "link": "https://example.com/cpp-tracker"
+    },
+    {
+      "title": "Interactive Code Reviewer",
+      "description": "An interactive code reviewer that integrates with a Raspberry Pi and allows users to annotate and modify code on a whiteboard.",
+      "link": "https://example.com/interactive-code-reviewer"
+    },
+    {
+      "title": "Motor Test Driver",
+      "description": "A motor test driver for STM32 to help test motor performance with precise control and monitoring.",
+      "link": "https://example.com/motor-test-driver"
+    }
+  ]

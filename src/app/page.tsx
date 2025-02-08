@@ -6,6 +6,7 @@ import TitleScreen from "./title_screen";
 import Head from "next/head";
 import AboutMe from "./about_me";
 import WorkExperience from "./work_experience";
+import Projects from "./projects";
 
 const Home: React.FC = () => {
   
@@ -27,7 +28,7 @@ const Home: React.FC = () => {
           <TitleScreen />
           <AboutMe/>
           <WorkExperience/>
-          
+          <Projects/>
           
         </div>
       )}
