@@ -1,3 +1,4 @@
+import ScrollIndicator from "./components/scroll_down_indicator";
 import ThreeBackground from "./three_screen";
 import styles from "./title_screen.module.css";
 
@@ -22,6 +23,7 @@ const TitleScreen: React.FC = () => {
                     <div className="text-3xl">Software Engineering @ UWaterloo</div>
                 </div>
             </div>
+            <ScrollIndicator/>
         </div>
     );
 };

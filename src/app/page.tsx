@@ -4,7 +4,8 @@ import { useState } from "react";
 import SplashScreen from "./splash_screen";
 import TitleScreen from "./title_screen";
 import Head from "next/head";
-import AboutMe from "./aboutme";
+import AboutMe from "./about_me";
+import WorkExperience from "./work_experience";
 
 const Home: React.FC = () => {
   
@@ -21,10 +22,12 @@ const Home: React.FC = () => {
       {isSplashVisible ? (
         <SplashScreen onFinish={handleSplashFinish} />
       ) : (
-        <div className="">
+        <div className="bg-black">
           {/* <ThreeBackground/> */}
           <TitleScreen />
           <AboutMe/>
+          <WorkExperience/>
+          
           
         </div>
       )}
