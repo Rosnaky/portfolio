@@ -9,6 +9,7 @@ import WorkExperience from "./work_experience";
 import Projects from "./projects";
 import Footer from "./components/footer";
 
+
 const Home: React.FC = () => {
   
   const [isSplashVisible, setIsSplashVisible] = useState<boolean>(true); // ifdebug

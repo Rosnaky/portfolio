@@ -314,7 +314,7 @@ const ThreeBackground = () => {
             lunarOrbitModels.forEach((entry) => {
                 const { model, xRadius, yRadius, zRadius, speed, rotation, parentModelIndex } = entry;
                 entry.angle += speed;
-                console.log(parentModelIndex);
+                
                 if (planetOrbitModels[parentModelIndex].pos_offset.x == 0 &&
                     planetOrbitModels[parentModelIndex].pos_offset.y == -4 &&
                     planetOrbitModels[parentModelIndex].pos_offset.z == -0.5) {
