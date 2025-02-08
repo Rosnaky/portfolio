@@ -7,6 +7,7 @@ import Head from "next/head";
 import AboutMe from "./about_me";
 import WorkExperience from "./work_experience";
 import Projects from "./projects";
+import Footer from "./components/footer";
 
 const Home: React.FC = () => {
   
@@ -29,6 +30,7 @@ const Home: React.FC = () => {
           <AboutMe/>
           <WorkExperience/>
           <Projects/>
+          <Footer/>
           
         </div>
       )}

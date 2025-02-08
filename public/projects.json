@@ -1,22 +1,65 @@
 [
-    {
-      "title": "Secret Agent",
-      "description": "A cybersecurity testing tool for identifying site vulnerabilities using Vertex AI, GCP, Cohere, and LangChain.",
-      "link": "https://example.com/secret-agent"
-    },
-    {
-      "title": "CPP Tracker",
-      "description": "A competitive programming tracker to help users track their progress and stats across multiple platforms.",
-      "link": "https://example.com/cpp-tracker"
-    },
-    {
-      "title": "Interactive Code Reviewer",
-      "description": "An interactive code reviewer that integrates with a Raspberry Pi and allows users to annotate and modify code on a whiteboard.",
-      "link": "https://example.com/interactive-code-reviewer"
-    },
-    {
-      "title": "Motor Test Driver",
-      "description": "A motor test driver for STM32 to help test motor performance with precise control and monitoring.",
-      "link": "https://example.com/motor-test-driver"
-    }
-  ]
+  {
+    "title": "Cyber Agent",
+    "description": "A cybersecurity testing tool for identifying site vulnerabilities using AI models",
+    "link": "https://github.com/Rosnaky/SecretAgent",
+    "languages": ["Python", "JavaScript"],
+    "frameworks": ["React", "Flask", "Cohere", "LangChain", "Selenium", "Threading"]
+  },
+  {
+    "title": "Project Code",
+    "description": "An interactive code reviewer integrating Raspberry Pi, allowing users to annotate and modify code with a whiteboard",
+    "link": "https://github.com/Rosnaky/Project-Code",
+    "languages": ["Python"],
+    "frameworks": ["Flask", "Raspberry Pi", "Google Cloud Vision", "OpenCV", "Threading"]
+  },
+  {
+    "title": "RemberU",
+    "description": "A social networking app that uses facial recognition and AI to provide personalized insights from conversations using lip reading and custom AI models",
+    "link": "https://github.com/Rosnaky/RemberU-HTN2024",
+    "languages": ["Python", "Dart"],
+    "frameworks": ["Flask", "Flutter", "Tensorflow", "YOLOv8", "Firebase", "Threading"]
+  },
+  {
+    "title": "This Portfolio",
+    "description": "A super duper cool portfolio that will make you remember who I am (without the need of RemberU)",
+    "link": "https://github.com/Rosnaky/portfolio",
+    "languages": ["Python", "Dart"],
+    "frameworks": ["Flask", "Flutter", "Tensorflow", "YOLOv8", "Firebase"]
+  },
+  {
+    "title": "I See You (ICU)",
+    "description": "Medication and emergency contact app that allows a patient to request assistance with the click of a button, ensuring attention in critical moments",
+    "link": "https://github.com/Rosnaky/I-See-You",
+    "languages": ["Dart"],
+    "frameworks": ["Flutter", "Firebase", "Docker", "Kubernetes", "Azure"]
+  },
+  {
+    "title": "Automated Dumptruck",
+    "description": "Autonomous vehicle that navigates school hallways to pick up recycling and deliver mail so peoplle don't have to. Used math for autonomous navigation",
+    "link": "https://github.com/Rosnaky/Automated-Dumptruck",
+    "languages": ["Python"],
+    "frameworks": ["Flask", "Raspberry Pi", "Threading"]
+  },
+  {
+    "title": "Terminal Text Editor",
+    "description": "Lightweight, command-line-based text editor designed for quick editing and manipulation of files directly from the terminal",
+    "link": "https://github.com/Rosnaky/hecto",
+    "languages": ["Rust"],
+    "frameworks": ["My Love for Rust"]
+  },
+  {
+    "title": "Misc AI",
+    "description": "A collection of AI projects and models that I have built over the years",
+    "link": "https://github.com/Rosnaky/Misc-AI",
+    "languages": ["Python"],
+    "frameworks": ["Jupyter Notebook", "Google Colab"]
+  },
+  {
+    "title": "A Social Media App",
+    "description": "Mock Instagram",
+    "link": "https://github.com/Rosnaky/Instagram",
+    "languages": ["Dart"],
+    "frameworks": ["Flutter", "Firebase"]
+  }
+]
