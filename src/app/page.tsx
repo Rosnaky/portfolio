@@ -8,7 +8,13 @@ import AboutMe from "./about_me";
 import WorkExperience from "./work_experience";
 import Projects from "./projects";
 import Footer from "./components/footer";
+import { Afacad_Flux } from "next/font/google";
 
+
+const AfacadFlux = Afacad_Flux({
+  variable: "--font-afacad-flux",
+  subsets: ["latin"]
+});
 
 const Home: React.FC = () => {
   
@@ -25,7 +31,7 @@ const Home: React.FC = () => {
       {isSplashVisible ? (
         <SplashScreen onFinish={handleSplashFinish} />
       ) : (
-        <div className="bg-black">
+        <div className={`bg-black ${AfacadFlux.className}`}>
           {/* <ThreeBackground/> */}
           <TitleScreen />
           <AboutMe/>
