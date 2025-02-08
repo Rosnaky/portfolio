@@ -11,7 +11,7 @@ import Footer from "./components/footer";
 
 const Home: React.FC = () => {
   
-  const [isSplashVisible, setIsSplashVisible] = useState<boolean>(false); // ifdebug
+  const [isSplashVisible, setIsSplashVisible] = useState<boolean>(true); // ifdebug
 
   const handleSplashFinish = () => setIsSplashVisible(false);
 

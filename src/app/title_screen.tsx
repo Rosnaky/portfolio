@@ -16,7 +16,7 @@ const TitleScreen: React.FC = () => {
             {/* Title Container */}
             <div className={`relative ${styles.titleContainer}  grid grid-rows-6 grid-cols-6 gap-4 z-20`}>
                 <div className="row-start-2 row-end-4 col-start-2 col-end-4">
-                    <div className="flex gap-8 items-center font-semibold py-2 text-8xl">
+                    <div className="flex gap-8 items-center font-extrabold py-2 text-8xl">
                         <div className="text-teal-200">RONAK</div>
                         <div>PATEL</div>
                     </div>
