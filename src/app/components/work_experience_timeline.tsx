@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { Briefcase } from "lucide-react";
 import styles from "./work_experience_timeline.module.css"
 
 interface WorkExperience {
