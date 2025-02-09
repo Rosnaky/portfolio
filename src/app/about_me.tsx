@@ -27,7 +27,7 @@ const AboutMe = () => {
                         If it’s interesting and technical, I’m probably working on it, or eventually will!
                     </div>
                     <div className="pt-6 opacity-70">
-                        If I'm not working, I'm flying a glider or Cessna 172 across Ontario! :0
+                        If I’m not working, I’m flying a glider or Cessna 172 across Ontario! :0
                     </div>
                 </div>
             </div>
