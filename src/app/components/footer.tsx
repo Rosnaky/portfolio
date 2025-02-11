@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <footer className={`${styles.font} bg-black text-[#B2DFDB] py-6 mt-8`}>
             <div className="max-w-7xl mx-auto px-4 text-center">
-                <p className="text-md">&copy; {new Date().getFullYear()} Ronak Patel. All rights reserved.</p>
+                <p className="text-md">&copy; {new Date().getFullYear()} Ronak Patel</p>
                 <div className="mt-2">
                     <a 
                         href="https://github.com/rosnaky"
