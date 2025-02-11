@@ -24,8 +24,8 @@
     "title": "This Portfolio",
     "description": "A super duper cool portfolio that will make you remember who I am (without the need of RemberU)",
     "link": "https://github.com/Rosnaky/portfolio",
-    "languages": ["Python", "Dart"],
-    "frameworks": ["Flask", "Flutter", "Tensorflow", "YOLOv8", "Firebase"]
+    "languages": ["TypeScript"],
+    "frameworks": ["Next.js", "Tailwind CSS", "Azure Deployments", "GitHub Actions"]
   },
   {
     "title": "I See You (ICU)",
