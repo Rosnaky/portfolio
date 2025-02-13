@@ -10,7 +10,7 @@
     "title": "Software Developer",
     "company": "2702 Rebels: FIRST Robotics Competition",
     "date": "Sept. 2022 – June 2024",
-    "description": "Developed a React.ts app with Firebase for scouting robot data. Optimized NoSQL structure for efficiency. Visualized performance metrics to enable strategic decisions during competition.",
+    "description": "Developed a React.ts app with Firebase for scouting robot data. Optimized NoSQL structure for efficiency. Analyzed performance metrics to enable strategic decisions during competition.",
     "icon": "./rebels.png"
   },
   {
