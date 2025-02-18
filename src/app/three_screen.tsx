@@ -213,9 +213,9 @@ const ThreeBackground = () => {
             return circle;
         }
         
-        const starCount = 400;
+        const starCount = 600;
         const maxX = 6;
-        const maxY = 4;
+        const maxY = 3.5;
         const maxZ = 6;
 
 
