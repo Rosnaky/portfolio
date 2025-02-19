@@ -8,24 +8,6 @@ const ThreeBackground = () => {
     const mountRef = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
-    // useEffect(() => {
-    //     const resizeCanvas = () => {
-    //         if (canvasRef.current && mountRef.current) {
-    //             const canvas = canvasRef.current;
-    //             const parent = mountRef.current;
-
-    //             // Set canvas size to match parent size
-    //             canvas.width = parent.clientWidth;
-    //             canvas.height = parent.clientHeight;
-    //         }
-    //     };
-
-    //     resizeCanvas();
-
-    //     window.addEventListener("resize", resizeCanvas);
-    //     return () => window.removeEventListener("resize", resizeCanvas);
-    // })
-
     useEffect(() => {
         if (!mountRef.current || !canvasRef.current) return;
 
@@ -331,7 +313,7 @@ const ThreeBackground = () => {
             camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 2000);
         }
 
-        window.addEventListener("resize", resizeCanvas);
+        
 
         const animate = () => {            
             requestAnimationFrame(animate);
@@ -390,6 +372,8 @@ const ThreeBackground = () => {
             renderer.render(scene, camera);
         };
         animate();
+        
+        window.addEventListener("resize", resizeCanvas);
 
         return () => {
             renderer.dispose();
@@ -399,7 +383,7 @@ const ThreeBackground = () => {
 
     return (
         <>
-            <div className="-z-10">
+            <div className="z-10 w-full min-h-screen">
                 <div ref={mountRef} className="">
                     <canvas ref={canvasRef}/>
                 </div>
