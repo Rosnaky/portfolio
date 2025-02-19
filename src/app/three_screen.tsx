@@ -239,7 +239,7 @@ const ThreeBackground = () => {
         
         
         
-        let camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 2000);
+        const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 2000);
         camera.position.z = 3;
         camera.position.y = 5;
         scene.add(camera);
