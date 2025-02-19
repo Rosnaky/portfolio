@@ -236,6 +236,9 @@ const ThreeBackground = () => {
         // const mesh = new THREE.Mesh(geometry, material);
         // scene.add(mesh);
         // TODO: Resize when window changes size
+        
+        
+        
         let camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 2000);
         camera.position.z = 3;
         camera.position.y = 5;
@@ -310,7 +313,11 @@ const ThreeBackground = () => {
 
             renderer.setSize(sizes.width, sizes.height);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 2000);
+            
+            camera.aspect = sizes.width / sizes.height;
+            camera.updateProjectionMatrix();
+
+            controls.update();
         }
 
         
