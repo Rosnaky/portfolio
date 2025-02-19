@@ -320,8 +320,6 @@ const ThreeBackground = () => {
             controls.update();
         }
 
-        
-
         const animate = () => {            
             requestAnimationFrame(animate);
 
