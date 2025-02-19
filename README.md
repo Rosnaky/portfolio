@@ -1,2 +1,2 @@
 # Ronak Patel
-This is my portfolio. I like it. You should too.
+This is my portfolio. I like it. You should too 👍.
