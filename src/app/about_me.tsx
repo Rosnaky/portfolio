@@ -6,14 +6,14 @@ const AboutMe = () => {
         <>
             <div className="flex justify-center pt-16 bg-black overflow-hidden">
                 <div className="w-2/3">
-                    <div className={`${styles.header} text-left text-teal-100 text-8xl font-extrabold`}>
+                    <div className={`${styles.header} text-left text-teal-100 font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl`}>
                         About Me
                     </div>
                 </div>
             </div>
             <div className="flex justify-center pt-6 bg-black overflow-hidden">
                 <div className="w-1/5">
-                    <div className="relative w-64 h-64 overflow-hidden rounded-full border-4 border-gray-700 shadow-lg">
+                    <div className="relative xl:w-64 xl:h-64 lg:w-48 lg:h-48 sm:w-32 sm:h-32 overflow-hidden rounded-full border-4 border-gray-700 shadow-lg">
                         <img src="./pfp.jpg" alt="Headshot" className="object-cover w-full h-full"/>
                     </div>
                 </div>

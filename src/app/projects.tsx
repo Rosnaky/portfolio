@@ -25,7 +25,7 @@ const Projects = () => {
             <h3 className="text-xl text-teal-100 opacity-30">
                 to keep myself busy
             </h3>
-            <h1 className="text-8xl font-extrabold text-teal-100 uppercase tracking-wide mb-12">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-teal-100 tracking-wide mb-12">
                 Projects
             </h1>
 
