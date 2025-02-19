@@ -8,24 +8,6 @@ const ThreeBackground = () => {
     const mountRef = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
-    // useEffect(() => {
-    //     const resizeCanvas = () => {
-    //         if (canvasRef.current && mountRef.current) {
-    //             const canvas = canvasRef.current;
-    //             const parent = mountRef.current;
-
-    //             // Set canvas size to match parent size
-    //             canvas.width = parent.clientWidth;
-    //             canvas.height = parent.clientHeight;
-    //         }
-    //     };
-
-    //     resizeCanvas();
-
-    //     window.addEventListener("resize", resizeCanvas);
-    //     return () => window.removeEventListener("resize", resizeCanvas);
-    // })
-
     useEffect(() => {
         if (!mountRef.current || !canvasRef.current) return;
 
@@ -254,6 +236,9 @@ const ThreeBackground = () => {
         // const mesh = new THREE.Mesh(geometry, material);
         // scene.add(mesh);
         // TODO: Resize when window changes size
+        
+        
+        
         let camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 2000);
         camera.position.z = 3;
         camera.position.y = 5;
@@ -328,10 +313,12 @@ const ThreeBackground = () => {
 
             renderer.setSize(sizes.width, sizes.height);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 2000);
-        }
+            
+            camera.aspect = sizes.width / sizes.height;
+            camera.updateProjectionMatrix();
 
-        window.addEventListener("resize", resizeCanvas);
+            controls.update();
+        }
 
         const animate = () => {            
             requestAnimationFrame(animate);
@@ -391,15 +378,18 @@ const ThreeBackground = () => {
         };
         animate();
 
+        window.addEventListener("resize", resizeCanvas);
+
         return () => {
             renderer.dispose();
             controls.dispose();
+            window.removeEventListener("resize", resizeCanvas);
         };
     }, []);
 
     return (
         <>
-            <div className="-z-10">
+            <div className="z-10 w-full min-h-screen">
                 <div ref={mountRef} className="">
                     <canvas ref={canvasRef}/>
                 </div>

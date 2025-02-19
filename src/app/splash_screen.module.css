@@ -18,7 +18,7 @@
   .cover {
     display: flex;
     height: 50px;
-    width: 20vw;
+    width: 100vw;
     color: black;
     background-color: black;
     position: fixed;
