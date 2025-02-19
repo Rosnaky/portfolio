@@ -8,6 +8,24 @@ const ThreeBackground = () => {
     const mountRef = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
+    // useEffect(() => {
+    //     const resizeCanvas = () => {
+    //         if (canvasRef.current && mountRef.current) {
+    //             const canvas = canvasRef.current;
+    //             const parent = mountRef.current;
+
+    //             // Set canvas size to match parent size
+    //             canvas.width = parent.clientWidth;
+    //             canvas.height = parent.clientHeight;
+    //         }
+    //     };
+
+    //     resizeCanvas();
+
+    //     window.addEventListener("resize", resizeCanvas);
+    //     return () => window.removeEventListener("resize", resizeCanvas);
+    // })
+
     useEffect(() => {
         if (!mountRef.current || !canvasRef.current) return;
 
@@ -236,7 +254,7 @@ const ThreeBackground = () => {
         // const mesh = new THREE.Mesh(geometry, material);
         // scene.add(mesh);
         // TODO: Resize when window changes size
-        const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 2000);
+        let camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 2000);
         camera.position.z = 3;
         camera.position.y = 5;
         scene.add(camera);
@@ -292,6 +310,28 @@ const ThreeBackground = () => {
             speed = 0;
             angle = Math.atan2(camera.position.z, camera.position.x);
         });
+
+        const resizeCanvas = () => {
+            const sizes = {
+                width: window.innerWidth,
+                height: window.innerHeight
+            };
+
+            if (canvasRef.current && mountRef.current) {
+                const canvas = canvasRef.current;
+                const parent = mountRef.current;
+
+                // Set canvas size to match parent size
+                canvas.width = sizes.width;
+                canvas.height = sizes.height;
+            }   
+
+            renderer.setSize(sizes.width, sizes.height);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 2000);
+        }
+
+        window.addEventListener("resize", resizeCanvas);
 
         const animate = () => {            
             requestAnimationFrame(animate);
