@@ -372,12 +372,13 @@ const ThreeBackground = () => {
             renderer.render(scene, camera);
         };
         animate();
-        
+
         window.addEventListener("resize", resizeCanvas);
 
         return () => {
             renderer.dispose();
             controls.dispose();
+            window.removeEventListener("resize", resizeCanvas);
         };
     }, []);
 
