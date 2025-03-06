@@ -16,6 +16,8 @@ You must give any other recipients of the Work or Derivative Works a copy of the
 4) Planet by Quaternius (https://poly.pizza/m/B7xd3SZq0z)  
 5) Moon by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/9OPocAqXM0u)  
 6) Neptune by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/cgAMaxYgk5x)  
+7) Planet by Quaternius (https://poly.pizza/m/hKZtOOMadH)  
+8) Moon by jeremy [CC-BY] via Poly Pizza  
 
 
 The above copyright notice and this permission notice shall be included in all

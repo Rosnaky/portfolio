@@ -165,10 +165,26 @@ const ThreeBackground = () => {
 
         }, undefined, function (error) {
             console.error(error);
+        })
+
+        // Red planet
+        loader.load('/utils/red-planet.glb', function(gltf) {
+            // eslint-disable-next-line prefer-const
+            let model = gltf.scene;
+
+            model.position.set(-8, 2, -5);
+            model.scale.set(0.2, 0.2, 0.2);
+
+            addModelToOrbit(model, model.position, 0.0012, new THREE.Vector3(-0.001, 0.005, -0.0005));
+
+            scene.add(model);
+
+        }, undefined, function (error) {
+            console.error(error);
         }) 
         
-        const numPlanets = 4;
-        const numMoons = 4;
+        const numPlanets = 5;
+        const numMoons = 5;
         const minPosThreshold = 0.5;
         const maxPosThreshold = 1.5;
         const minPlanetSpeed = 0.0005;
@@ -228,16 +244,6 @@ const ThreeBackground = () => {
 
             scene.add(star);
         }
-
-
-
-        // const geometry = new THREE.BoxGeometry(1, 1, 1);
-        // const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-        // const mesh = new THREE.Mesh(geometry, material);
-        // scene.add(mesh);
-        // TODO: Resize when window changes size
-        
-        
         
         const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 2000);
         camera.position.z = 3;
@@ -256,15 +262,6 @@ const ThreeBackground = () => {
         controls.enableDamping = true;
         controls.enablePan = false;
         controls.enableZoom = false;
-
-        // Restrict vertical rotation
-        // controls.maxPolarAngle = Math.PI / 2;
-        // controls.minPolarAngle = Math.PI / 2;
-
-        // const axesHelper = new THREE.AxesHelper(5); // Size of the axes
-        // scene.add(axesHelper);
-        // const gridHelper = new THREE.GridHelper(10, 10); // Size of the grid and number of divisions
-        // scene.add(gridHelper);
 
         const renderer = new THREE.WebGLRenderer({
             canvas: canvas,
