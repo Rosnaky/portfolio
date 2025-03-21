@@ -154,12 +154,12 @@ const ThreeBackground = () => {
             // eslint-disable-next-line prefer-const
             let model = gltf.scene;
 
-            model.position.set(6, 4, 5);
+            model.position.set(6, -4, 5);
             model.scale.set(0.02, 0.02, 0.02);
             // model.rotation.x = Math.PI * (10/180);
             // model.rotation.z = Math.PI * (-15/180);
 
-            addModelToOrbit(model, model.position, 0.0012, new THREE.Vector3(-0.001, 0.005, -0.0005));
+            addModelToOrbit(model, model.position, 0.0008, new THREE.Vector3(-0.001, 0.005, -0.0005));
 
             scene.add(model);
 
@@ -172,10 +172,10 @@ const ThreeBackground = () => {
             // eslint-disable-next-line prefer-const
             let model = gltf.scene;
 
-            model.position.set(-8, 2, -5);
+            model.position.set(-8, -2, -5);
             model.scale.set(0.2, 0.2, 0.2);
 
-            addModelToOrbit(model, model.position, 0.0012, new THREE.Vector3(-0.001, 0.005, -0.0005));
+            addModelToOrbit(model, model.position, 0.0012, new THREE.Vector3(0.0005, 0.005, -0.0005));
 
             scene.add(model);
 
