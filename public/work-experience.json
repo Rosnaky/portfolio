@@ -1,17 +1,10 @@
 [
   {
-    "title": "Embedded Flight Software Developer",
+    "title": "Embedded Flight Software Project Manager",
     "company": "Waterloo Aerial Robotics Group",
     "date": "Jan. 2025 – Present",
     "description": "Developed GPS-integrated drivers for a custom flight controller. Worked on real-time embedded systems ensuring reliable flight software-hardware integration. Contributed to a fast-paced team optimizing drone flight operations.",
     "icon": "./warg.jpg"
-  },
-  {
-    "title": "Software Developer",
-    "company": "2702 Rebels: FIRST Robotics Competition",
-    "date": "Sept. 2022 – June 2024",
-    "description": "Developed a React.ts app with Firebase for scouting robot data. Optimized NoSQL structure for efficiency. Analyzed performance metrics to enable strategic decisions during competition.",
-    "icon": "./rebels.png"
   },
   {
     "title": "Co-Founder",
@@ -19,5 +12,12 @@
     "date": "Sept. 2023 – Present",
     "description": "Founded Ontario’s first hybrid team programming contest post-pandemic for 350 students. Expanding to across Canada for 2025 👀",
     "icon": "./ctpc.png"
+  },
+  {
+    "title": "Software Developer",
+    "company": "2702 Rebels: FIRST Robotics Competition",
+    "date": "Sept. 2022 – June 2024",
+    "description": "Developed a React.ts app with Firebase for scouting robot data. Optimized NoSQL structure for efficiency. Analyzed performance metrics to enable strategic decisions during competition.",
+    "icon": "./rebels.png"
   }
 ]

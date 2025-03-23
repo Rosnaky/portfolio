@@ -1,5 +1,12 @@
 [
   {
+    "title": "TRVL",
+    "description": "An AI tool that scrapes the web to plan a personalized travel itinerary",
+    "link": "https://github.com/Rosnaky/TRVL",
+    "languages": ["Python", "JavaScript"],
+    "frameworks": ["Next", "Flask", "Cohere", "Gemini", "LangChain", "RAG", "Pinecone"]
+  },
+  {
     "title": "Cyber Agent",
     "description": "A cybersecurity testing tool for identifying site vulnerabilities using AI models",
     "link": "https://github.com/Rosnaky/SecretAgent",
