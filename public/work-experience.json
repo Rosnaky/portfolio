@@ -1,5 +1,12 @@
 [
   {
+    "title": "Software Engineering Inten",
+    "company": "NationGraph",
+    "date": "May. 2025 – Present",
+    "description": "Making data more accessible for public sector companies.",
+    "icon": "./nationgraph.jpg"
+  },
+  {
     "title": "Embedded Flight Software Project Manager",
     "company": "Waterloo Aerial Robotics Group",
     "date": "Jan. 2025 – Present",
