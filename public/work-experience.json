@@ -3,28 +3,28 @@
     "title": "Software Engineering Intern",
     "company": "NationGraph",
     "date": "May. 2025 – Present",
-    "description": "Making data more accessible for public sector companies.",
+    "description": "Personalizing data to make selling to the public sector more accessible.",
     "icon": "./nationgraph.jpg"
   },
   {
-    "title": "Embedded Flight Software Project Manager",
+    "title": "Embedded Flight Software Lead",
     "company": "Waterloo Aerial Robotics Group",
     "date": "Jan. 2025 – Present",
-    "description": "Developed GPS-integrated drivers for a custom flight controller. Worked on real-time embedded systems ensuring reliable flight software-hardware integration. Contributed to a fast-paced team optimizing drone flight operations.",
+    "description": "Leading in-house custom flight controller and winning at the Aerial Evolution Association of Canada Competition 🏆",
     "icon": "./warg.jpg"
   },
   {
     "title": "Co-Founder",
     "company": "Canadian Team Programming Contest",
     "date": "Sept. 2023 – Present",
-    "description": "Founded Ontario’s first hybrid team programming contest post-pandemic for 350 students. Expanding to across Canada for 2025 👀",
+    "description": "Hosting competitive contests for students across Canada, starting with competitive programming!",
     "icon": "./ctpc.png"
   },
   {
     "title": "Software Developer",
     "company": "2702 Rebels: FIRST Robotics Competition",
     "date": "Sept. 2022 – June 2024",
-    "description": "Developed a React.ts app with Firebase for scouting robot data. Optimized NoSQL structure for efficiency. Analyzed performance metrics to enable strategic decisions during competition.",
+    "description": "Make robots from scratch and win competitions with superior strategy data gathered with in-house software tools",
     "icon": "./rebels.png"
   }
 ]
