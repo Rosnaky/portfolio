@@ -18,7 +18,7 @@ const AfacadFlux = Afacad_Flux({
 
 const Home: React.FC = () => {
   
-  const [isSplashVisible, setIsSplashVisible] = useState<boolean>(true); // ifdebug
+  const [isSplashVisible, setIsSplashVisible] = useState<boolean>(false); // ifdebug
 
   const handleSplashFinish = () => setIsSplashVisible(false);
 
